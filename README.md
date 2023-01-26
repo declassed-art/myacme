@@ -1,7 +1,7 @@
 # MyACME client library and CLI tools
 
 
-
+ This is a backup of the main repository https://declassed.art/repository/myacme
 
 This ACME client might be considered stable, given that I have been using it since 2021 in manual mode.
 However, it's still beta for the following reasons:
@@ -19,10 +19,10 @@ This yet another ACME client emerged for fwo reasons:
   A few clients I tried required email for some reason, although ACME protocol defines contacts as optional.
   It was odd to ask an email when I had no mail server yet.
   Later on I discovered an option in certbot that makes email optional, but here's another reason:
-* Certbot was too complicated for me to extend for my needs. I wanted a simple tool and choosing
+* Certbot was too complicated for me to extend for my very basic needs. I wanted a simple tool and choosing
   a way to waste my time I preferred to learn RFC 8555 instead of certbot internals.
 
-So, this library is written from scratch by studying https://tools.ietf.org/html/rfc8555
+So, this client is written from scratch by studying https://tools.ietf.org/html/rfc8555
 and trying out Let's Encrypt staging and production environments.
 It is based on `requests` and `cryptography` packages.
 
@@ -199,7 +199,6 @@ authz:  # domain ownership validation parameters
         cleanup:
             - 'myacme-zonefile /etc/bind/primary/{subdomain[1]} del-acme-challenge {domain} {key_digest}'
             - 'rndc reload {idna_subdomain[1]}'
-            - sleep 10
 
     http-01:
         setup:
